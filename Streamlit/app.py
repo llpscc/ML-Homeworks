@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import pickle
 
-# Загрузка модели
 with open("streamlit_model.pkl", "rb") as f:
     bundle = pickle.load(f)
 
@@ -20,6 +19,8 @@ for col in columns:
     user_input[col] = st.number_input(col, value=float(mean_values[col]))
 
 input_df = pd.DataFrame([user_input])
+input_df = input_df[columns] 
+input_df = input_df.fillna(mean_values)
 
 log_price = pipeline.predict(input_df)
 predicted_price = inverse_transform(log_price)[0]
