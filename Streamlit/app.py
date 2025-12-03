@@ -12,7 +12,7 @@ columns = bundle["columns"]
 inverse_transform = bundle["inverse_transform"]
 mean_values = bundle["mean_values"]
 
-st.title("редсказание стоимости автомобиля")
+st.title("Предсказание стоимости автомобиля")
 st.markdown("Введите значения признаков:")
 
 user_input = {}
